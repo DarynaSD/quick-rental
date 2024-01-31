@@ -1,17 +1,90 @@
+@import 'normalize.css';
+
 :root {
-  --accent-color: #0B44CD;
+  --bg: #FCFCFC;
+  --accent-light: #3470FF;
+  --accent-dark: #0B44CD;
 }
+
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, Manrope, BlinkMacSystemFont, 'Manrope', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--bg);
+  color: #121417;
+}
+
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+Link,
+NavLink,
+a,
+p {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+a > img {
+  transition: transform 250ms linear;
+}
+
+a:is(:hover, :focus) > img {
+  transform: scale(1.03);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.nav-item {
+  color: var(--accent-light);
+  font-weight: 500;
+  padding: 15px;
+  display: block;
+}
+
+.nav-item:is(:hover, :focus) {
+  color: var(--accent-dark);
+  transition: color linear 250ms;
+}
+
+.nav-item::after {
+  content: '';
+  width: 100%;
+  opacity: 0;
+  margin-top: 5px;
+  height: 3px;
+  border-radius: 10px;
+  display: block;
+  transition: opacity linear 250ms, background-color linear 250ms;
+}
+
+.nav-item:is(:hover, :focus)::after {
+  background-color: var(--accent-light);
+  opacity: 1;
+}
+
+.nav-item.active::after {
+  background-color: var(--accent-light);
+  opacity: 1;
 }

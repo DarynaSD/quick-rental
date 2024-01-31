@@ -1,0 +1,1 @@
+// const defaultImg = 'https://www.gavalimotors.com/adminpanel/assets/images/carnotfound.jpg'
