@@ -1,4 +1,6 @@
-@import-normalize; /* bring in normalize.css styles */
+:root {
+  --accent-color: #0B44CD;
+}
 
 body {
   margin: 0;
