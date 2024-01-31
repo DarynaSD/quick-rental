@@ -1,21 +1,20 @@
-# Про проект
+# About app
 
-Цей проект створений за допомогою
-[Create React App](https://github.com/facebook/create-react-app). Для знайомства та налаштування додаткових можливостей
-[зверніться до документації](https://facebook.github.io/create-react-app/docs/getting-started).
+This project was created with
+[Create React App](https://github.com/facebook/create-react-app). To get
+acquainted and configure additional features
+[refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Жива стoрінка
+# Live page
 
-Живу сторінку додатку можна переглянути за адресою, яка вказана в описі репозиторію. Посилання на живу сторінку цього репозиторію
-[https://darynasd.github.io/quick-rental/](https://darynasd.github.io/quick-rental/).
+The live page of the application can be viewed at the address indicated in the
+repository description. Link to the live page of this repository [https://darynasd.github.io/quick-rental/](https://darynasd.github.io/quick-rental/).
 
-### Клонування і локальний запуск
+# Cloning and local launch
 
-Щоб запустити додаток локально у себе на комп'ютері:
-1. Переконайтеся, що у вас встановлена LTS-версия Node.js.
-   [Завантажте та встановіть](https://nodejs.org/en/) її при необхідності.
-2. Склонуйте цей репозиторій.
-3. Встановіть базові залежності проекта командою `npm install`.
-4. Запустіть режим розробки командою `npm start`.
-5. У браузері відкриється адреса [http://localhost:3000](http://localhost:3000).
-   Ця сторінка буде автоматично перезавантажуватися після збереження змін у файлах проекта.
+1. Make sure you have an LTS version of Node.js installed on your computer.
+   [Download and install](https://nodejs.org/en/) if needed.
+2. Clone this repository.
+3. Install the project's base dependencies with the `npm install` command.
+4. Start development mode by running the `npm start` command.
+5. Go to [http://localhost:3000](http://localhost:3000) in your browser. This page will automatically reload after saving changes to the project files.
