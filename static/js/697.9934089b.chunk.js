@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkquick_rental=self.webpackChunkquick_rental||[]).push([[697],{697:function(e,n,u){u.r(n);u(791);var r=u(184);n.default=function(){return(0,r.jsx)("div",{children:"Favorites Page"})}}}]);
+//# sourceMappingURL=697.9934089b.chunk.js.map
