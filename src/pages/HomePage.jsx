@@ -1,6 +1,10 @@
 import React from 'react';
-import { Button, HomeSection, HomeWrap } from './styled/main.styled';
-import { HeroHeader, InfoWrap } from './styled/HomePage.styled';
+import { Button } from './styled/main.styled';
+import {
+  HomeSection,
+  HomeWrap, HeroHeader,
+  InfoWrap,
+} from './styled/HomePage.styled';
 import { useNavigate } from 'react-router';
 
 export const HomePage = () => {

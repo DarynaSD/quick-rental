@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import img from '../../img/hero-car.jpg';
+
 
 export const Wrap = styled('div')({
     maxWidth: '1440px',
@@ -35,20 +35,4 @@ export const Button = styled('button')({
     },
 })
 
-// for HomePage
-export const HomeWrap=styled('div')({
-    maxWidth: '1440px',
-    margin: '97px auto 0',
-    color: '#FCFCFC',
-})
 
-
-export const HomeSection = styled('section')({
-    padding: '200px 250px 278px',
-    
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-
-    backgroundImage: `linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(${img})`,
-})
