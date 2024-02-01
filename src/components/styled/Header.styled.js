@@ -11,6 +11,7 @@ export const HeaderWrap = styled('div')({
     backgroundColor: '#FCFCFC',
     borderImage: 'linear-gradient(0.25turn, rgba(56,2,155,0), rgba(82, 133, 255), rgba(0, 49, 164), rgba(56,2,155,0))',
     borderImageSlice: 1,
+    zIndex: 55,
 })
 
 export const NavLinkWrap = styled('nav')({
