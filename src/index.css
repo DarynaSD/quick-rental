@@ -6,6 +6,10 @@
   --accent-dark: #0B44CD;
 }
 
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
 
 body {
   margin: 0;
@@ -57,15 +61,16 @@ code {
 }
 
 .nav-item {
-  color: var(--accent-light);
+  color: #121417;
   font-weight: 500;
-  padding: 15px;
+  font-size: 16px;
+  padding: 5px;
   display: block;
+  transition: color linear 250ms;
 }
 
 .nav-item:is(:hover, :focus) {
-  color: var(--accent-dark);
-  transition: color linear 250ms;
+  color: var(--accent-light);
 }
 
 .nav-item::after {
@@ -79,12 +84,11 @@ code {
   transition: opacity linear 250ms, background-color linear 250ms;
 }
 
-.nav-item:is(:hover, :focus)::after {
-  background-color: var(--accent-light);
-  opacity: 1;
+.nav-item.active {
+  color: var(--accent-dark);
 }
 
 .nav-item.active::after {
-  background-color: var(--accent-light);
+  background-color: var(--accent-dark);
   opacity: 1;
 }

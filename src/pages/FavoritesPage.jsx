@@ -1,10 +1,13 @@
 import React from 'react';
+import { Section, Wrap } from './styled/main.styled';
 
- const FavoritesPage = () => {
+const FavoritesPage = () => {
   return (
-    <div>
-   Favorites Page
-    </div>
+    <Wrap>
+      <Section>
+        <>FavoritesPage</>
+      </Section>
+    </Wrap>
   );
 };
 

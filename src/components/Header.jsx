@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { HeaderWrap, NavLinkWrap } from './styled/Header.styled';
+import {  HeaderWrap, NavLinkWrap } from './styled/Header.styled';
 
 const Header = () => {
   return (
     <HeaderWrap>
+
       <NavLinkWrap>
         <NavLink to="/" className="nav-item">
           Home
@@ -16,6 +17,7 @@ const Header = () => {
           Favorites
         </NavLink>
       </NavLinkWrap>
+
     </HeaderWrap>
   );
 };

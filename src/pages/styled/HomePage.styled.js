@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import img from '../../img/hero-car.jpg';
 
-export const HomeWrap = styled('div')({
-    width: '1440px',
-    background: `url(${img})`,
-    margin: 'auto',
+export const HeroHeader = styled('h1')({
+    fontSize: 56,
+    fontWeight: 600,
+    letterSpacing: 0.2,
+    width: 452,
+    marginTop: -10,
 })
 
-export const HomeContainer = styled('div')({
-    width: '1440px',
-    padding: '200px 246px 128px',
+export const InfoWrap = styled('div')({
+    width: 274,
 })
