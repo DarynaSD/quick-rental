@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/quick-rental/static/css/main.23afbdcd.css",
-    "main.js": "/quick-rental/static/js/main.691e75ce.js",
-    "static/js/69.2463e399.chunk.js": "/quick-rental/static/js/69.2463e399.chunk.js",
-    "static/js/697.9934089b.chunk.js": "/quick-rental/static/js/697.9934089b.chunk.js",
+    "main.css": "/quick-rental/static/css/main.a31fd20c.css",
+    "main.js": "/quick-rental/static/js/main.b7122b6d.js",
+    "static/js/69.1f561fe3.chunk.js": "/quick-rental/static/js/69.1f561fe3.chunk.js",
+    "static/js/697.0f561d37.chunk.js": "/quick-rental/static/js/697.0f561d37.chunk.js",
     "static/media/hero-car.jpg": "/quick-rental/static/media/hero-car.1488245e7ba775a6af2c.jpg",
     "index.html": "/quick-rental/index.html",
-    "main.23afbdcd.css.map": "/quick-rental/static/css/main.23afbdcd.css.map",
-    "main.691e75ce.js.map": "/quick-rental/static/js/main.691e75ce.js.map",
-    "69.2463e399.chunk.js.map": "/quick-rental/static/js/69.2463e399.chunk.js.map",
-    "697.9934089b.chunk.js.map": "/quick-rental/static/js/697.9934089b.chunk.js.map"
+    "main.a31fd20c.css.map": "/quick-rental/static/css/main.a31fd20c.css.map",
+    "main.b7122b6d.js.map": "/quick-rental/static/js/main.b7122b6d.js.map",
+    "69.1f561fe3.chunk.js.map": "/quick-rental/static/js/69.1f561fe3.chunk.js.map",
+    "697.0f561d37.chunk.js.map": "/quick-rental/static/js/697.0f561d37.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.23afbdcd.css",
-    "static/js/main.691e75ce.js"
+    "static/css/main.a31fd20c.css",
+    "static/js/main.b7122b6d.js"
   ]
 }
