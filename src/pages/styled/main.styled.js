@@ -10,29 +10,29 @@ export const Section = styled('section')({
     padding: '100px 128px 150px',
 })
 
-export const Button = styled('button')({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 274,
-    height: 44,
-    marginTop: 28,
+export const Button = styled.button(({width}) => `
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: ${width ? width : '274'}px;
+    height: 44px;
+    margin-top: 28px;
 
-    border: 'none',
-    borderRadius: 12,
-    backgroundColor: '#3470FF',
+    border: none;
+    border-radius: 12px;
+    background-color: #3470FF;
 
-    fontSize: 14,
-    fontWeight: 400,
-    color: '#FCFCFC',
+    font-size: 14px;
+    font-weight: 300px;
+    color: #FCFCFC;
 
-    cursor: 'pointer',
+    cursor: pointer;
 
-    transition: 'backgroundColor, linear, 250ms',
+    transition:  background-color, linear, 250ms;
 
-    '&:is(:hover, :focus)': {
-        backgroundColor: '#0B44CD',
-    },
-})
+    &:is(:hover, :focus) {
+        background-color: #0B44CD;
+    };
+`)
 
 

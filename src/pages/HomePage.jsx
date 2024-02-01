@@ -27,9 +27,11 @@ export const HomePage = () => {
           <Button type="button" onClick={handleClick}>
             Choose car
           </Button>
+          {/* <Button width={200} type="button" onClick={handleClick}>
+            Little but
+          </Button> */}
         </InfoWrap>
       </HomeSection>
-      
     </HomeWrap>
   );
 };
