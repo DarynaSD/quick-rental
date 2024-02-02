@@ -43,3 +43,9 @@ export const TextThumb = styled('div')({
     justifyContent: 'space-between',
     marginTop: 14,
 })
+
+export const AddThumb = styled('div')({
+    marginTop: 8,
+    color: 'rgba(18, 20, 23, 0.5)',
+    fontSize: 12,
+})

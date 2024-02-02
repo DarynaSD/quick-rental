@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImgThumb, Item, Overlay, TextThumb } from './styled/List.styled';
+import { AddThumb, ImgThumb, Item, Overlay, TextThumb } from './styled/List.styled';
 
 const defaultImg = 'https://www.gavalimotors.com/adminpanel/assets/images/carnotfound.jpg'
 
@@ -20,6 +20,9 @@ const CarsListItem = ({ item }) => {
           </p>
           <p>{rentalPrice}</p>
         </TextThumb>
+        <AddThumb>
+          <span>{(address, rentalCompany)} </span>
+        </AddThumb>
       </Item>
     );
 };
