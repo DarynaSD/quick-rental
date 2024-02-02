@@ -13,15 +13,21 @@ import { styled } from 'styled-components';
 
 export const Item = styled('li')({
     width: 'calc((100% / 4) - 29px)',
-    boxShadow: '0px 15px 30px 0px rgba(0, 0, 0, 0)',
-    borderRadius: 14,
+    height: 426, 
     overflow: 'hidden',
 
-    transition: 'boxShadow, linear, 250ms',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 8,
+    justifyContent: 'space-between',
+
+    transition: 'background, linear, 250ms',
     
     '&:is(:hover, :focus)': {
-        boxShadow: '0px 15px 30px 0px rgba(0, 0, 0, 0.2)',
+        background: '#F7F7FB',
     },
+
+    cursor: 'default',
 })
 
 export const ImgThumb = styled('div')({
@@ -41,11 +47,18 @@ export const Overlay = styled('div')({
 export const TextThumb = styled('div')({
     display: 'flex',
     justifyContent: 'space-between',
-    marginTop: 14,
+    marginTop: 6,
+    fontWeight: 500,
 })
 
 export const AddThumb = styled('div')({
-    marginTop: 8,
+    // marginTop: 8,
     color: 'rgba(18, 20, 23, 0.5)',
     fontSize: 12,
+    lineHeight: 1.5,
 })
+
+export const Span = styled('span')({
+    color: '#3470FF',
+})
+
