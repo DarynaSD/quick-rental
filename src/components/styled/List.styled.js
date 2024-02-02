@@ -16,10 +16,10 @@ export const Item = styled('li')({
     height: 426, 
     overflow: 'hidden',
 
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 8,
-    justifyContent: 'space-between',
+    // display: 'flex',
+    // flexDirection: 'column',
+    // gap: 8,
+    // justifyContent: 'space-between',
 
     transition: 'background, linear, 250ms',
     
@@ -34,6 +34,7 @@ export const ImgThumb = styled('div')({
     position: 'relative',
     borderRadius: 14,
     overflow: 'hidden',
+    minHeight: 268,
 })
 
 export const Overlay = styled('div')({
@@ -47,15 +48,20 @@ export const Overlay = styled('div')({
 export const TextThumb = styled('div')({
     display: 'flex',
     justifyContent: 'space-between',
-    marginTop: 6,
+    marginTop: 14,
     fontWeight: 500,
 })
 
 export const AddThumb = styled('div')({
-    // marginTop: 8,
+    marginTop: 8,
     color: 'rgba(18, 20, 23, 0.5)',
     fontSize: 12,
     lineHeight: 1.5,
+    height: 112,
+
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
 })
 
 export const Span = styled('span')({

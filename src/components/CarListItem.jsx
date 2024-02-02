@@ -17,20 +17,20 @@ const CarsListItem = ({ item }) => {
         <ImgThumb>
           <Overlay />
           <img src={img ? img : defaultImg} alt={(make, model)} />
-          <HeartButton isLiked={ true } />
+          <HeartButton isLiked={true} />
         </ImgThumb>
         <TextThumb>
           <p>
-            <span>{make} </span>
-            <Span>{model && model}, </Span>
-            <span>{year}</span>
+            <span>{make}</span>
+            <Span>{model && model.length < 10 && ` ${model}`}</Span>
+            <span>{`, ${year}`}</span>
           </p>
           <p>{rentalPrice}</p>
         </TextThumb>
         <AddThumb>
           <p>{formatted} </p>
+          <Button margin={'0'}>Learn more</Button>
         </AddThumb>
-        <Button>Learn more</Button>
       </Item>
     );
 };
