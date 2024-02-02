@@ -8,7 +8,7 @@ const CarsList = ({ cars }) => {
   return (
     <List>
       {cars.map(one => (
-        <CarsListItem item={one} key={nanoid()}  />
+        <CarsListItem item={one} key={nanoid()} />
       ))}
     </List>
   );
