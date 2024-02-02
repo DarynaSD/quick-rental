@@ -10,6 +10,30 @@ const initialState = { cars: [], favorites: [], isLoading: false, error: null };
 const carsSlice = createSlice({
   name: 'cars',
   initialState,
+
+  // updateTodo: (state, { payload }) => {
+	// 		state.todo = state.todo.map((el) =>
+	// 			el.id === payload ? { ...el, completed: !el.completed } : el
+	// 		)
+
+  reducers: {
+    addFavCars: (state, { payload }) => {
+      console.log("payload in addFavCars >> ", payload);
+  
+      console.log("state.favorites", JSON.parse(JSON.stringify(state.favorites)))
+
+      state.cars = state.cars.map((el) =>
+        el.id === payload.id ? { ...el, isLiked: true } : el);
+      
+      state.favorites = state.favorites.length ? [payload, ...state.favorites] : [payload];
+    },
+
+    deleteFavCars: (state, { payload }) => {
+      state.favorites = state.favorites.filter(el => el.id !== payload);
+      console.log("payload in deleteFavCars >> ", payload);
+    },
+  },
+
   extraReducers: builder =>
     builder
       .addCase(fetchAllCars.fulfilled, (state, action) => {

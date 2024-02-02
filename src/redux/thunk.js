@@ -8,7 +8,10 @@ export const fetchAllCars = createAsyncThunk(
       const response = await axios.get(
         'https://65364b41c620ba9358ed4420.mockapi.io/adverts'
       );
-      return response.data;
+
+      const formattedData = response.data.map(one => ({ ...one, isLiked: false }))
+      console.log(formattedData)
+      return formattedData;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

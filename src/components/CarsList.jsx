@@ -4,11 +4,15 @@ import { nanoid } from '@reduxjs/toolkit';
 import CarsListItem from './CarListItem';
 import { List } from './styled/List.styled';
 
-const CarsList = ({ cars }) => {
+const CarsList = ({ cars, toggleFavorite }) => {
   return (
     <List>
       {cars.map(one => (
-        <CarsListItem item={one} key={nanoid()} />
+        <CarsListItem
+          item={one}
+          toggleFavorite={toggleFavorite}
+          key={nanoid()}
+        />
       ))}
     </List>
   );

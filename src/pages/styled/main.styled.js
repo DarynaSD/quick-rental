@@ -36,7 +36,7 @@ export const Button = styled.button(({width, margin}) => `
     };
 `)
 
-export const HeartButton = styled.button(({isLiked}) => `
+export const HeartButton = styled.button(({isli}) => `
     position: absolute;
     width: 50px;
     height: 50px;
@@ -57,7 +57,7 @@ export const HeartButton = styled.button(({isLiked}) => `
     top: 0px;
     width: 10px;
     height: 18px;
-    background: ${isLiked ? '#3470FF' : '#CCCCCC'};
+    background: ${isli ? '#3470FF' : '#CCCCCC'};
     border-radius: 50px 50px 0 0;
     transform: rotate(-45deg);
     transform-origin: 0 100%;
@@ -72,7 +72,7 @@ export const HeartButton = styled.button(({isLiked}) => `
 
     &:is(:hover, :focus)::after,
     &:is(:hover, :focus)::before {
-        background: ${isLiked ? '#0B44CD' : '#FCFCFC'};
+        background: ${isli ? '#0B44CD' : '#FCFCFC'};
     };
 `)
 

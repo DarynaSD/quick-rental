@@ -10,7 +10,7 @@ export const formatData = item => {
   } = item;
 
   const premium =
-    Number(rentalPrice.slice(1, rentalPrice.length)) > 30
+    Number(rentalPrice.slice(1, rentalPrice.length)) > 50
       ? 'Premium'
       : 'Lowcost';
 
