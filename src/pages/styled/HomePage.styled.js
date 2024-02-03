@@ -6,7 +6,6 @@ export const HomeWrap=styled('div')({
     maxWidth: '1440px',
     margin: '97px auto 0',
     color: '#FCFCFC',
-    fontWeight: 400,
 })
 
 export const HomeSection = styled('section')({
@@ -15,8 +14,9 @@ export const HomeSection = styled('section')({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-
+    
     backgroundImage: `linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(${img})`,
+    fontWeight: 400,
 })
 
 export const HeroHeader = styled('h1')({

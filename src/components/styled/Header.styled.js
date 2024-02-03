@@ -17,9 +17,10 @@ export const HeaderWrap = styled('div')({
 export const NavLinkWrap = styled('nav')({
     margin: '0 auto',
     maxWidth: 1440,
+    width: 'fit-content',
     display: 'flex',
     flexWrap: 'nowrap',
     gap: 20,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
 })

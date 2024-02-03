@@ -2,8 +2,9 @@ import { styled } from 'styled-components';
 
  export const List = styled('ul')({
     display: 'flex',
-     flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+    width: '100%',
     maxWidth: 1440,
     rowGap: 50,
     columnGap: 29,
@@ -15,12 +16,6 @@ export const Item = styled('li')({
     width: 'calc((100% / 4) - 29px)',
     height: 426, 
     overflow: 'hidden',
-
-    // display: 'flex',
-    // flexDirection: 'column',
-    // gap: 8,
-    // justifyContent: 'space-between',
-
     transition: 'background, linear, 250ms',
     
     '&:is(:hover, :focus)': {
