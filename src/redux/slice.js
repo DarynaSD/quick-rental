@@ -7,7 +7,7 @@ const initialState = {
   cars: [],
   isLoading: false,
   error: null,
-  filter: { brand: '', price: '', mileageFrom: '', mileageTo: '' },
+  filter: { brand: '', price: null, mileageFrom: null, mileageTo: null },
 };
 
 const carsSlice = createSlice({

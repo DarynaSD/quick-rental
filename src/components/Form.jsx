@@ -118,6 +118,7 @@ const Form = () => {
           id="mileageInput"
           value={mileageFrom}
           onChange={handleChange}
+          min={1}
           placeholder="From"
         />
         <Input
@@ -127,6 +128,7 @@ const Form = () => {
           value={mileageTo}
           onChange={handleChange}
           onBlur={handleBlur}
+          min={1}
           placeholder="To"
         />
       </InputLabelWrapper>

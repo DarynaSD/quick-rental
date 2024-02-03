@@ -1,5 +1,4 @@
 import { createSelector } from '@reduxjs/toolkit';
-// import { selectFilter } from '../redux/selectors';
 
 export const selectLoading = state => state.cars.isLoading;
 
@@ -17,15 +16,23 @@ export const selectFavCars = state => {
 
 export const selectVisibleCars = createSelector(
   [selectCars, selectFilters],
-  (cars, { brand, price }) => {
-    console.log('brand >>', brand);
-      return cars
-          .filter(one =>
-      brand !== '' ? one.make.toLowerCase() === brand.toLowerCase() : one
+  (cars, { brand, price, mileageFrom, mileageTo }) => {
+    // console.log('brand >>', brand);
+    return cars
+      .filter(one =>
+        brand !== '' ? one.make.toLowerCase() === brand.toLowerCase() : one
       )
-          .filter(one => {
-              const formattedPrice = Number(one.rentalPrice.slice(1, one.rentalPrice.length));
-              return price ? formattedPrice <= Number(price) : one}
-    );
+      .filter(one => {
+        const formattedPrice = Number(
+          one.rentalPrice.slice(1, one.rentalPrice.length)
+        );
+        return price ? formattedPrice <= Number(price) : one;
+      })
+      .filter(one =>
+        Number(mileageFrom) ? one.mileage >= Number(mileageFrom) : one
+      )
+      .filter(one =>
+        Number(mileageTo) ? one.mileage <= Number(mileageTo) : one
+      );
   }
 );
