@@ -12,7 +12,7 @@ import { styled } from 'styled-components';
      color: '#3470FF',
      textDecoration: 'underline',
      fontSize: 16,
-     fontWeight: 600,
+     fontWeight: 500,
      cursor: 'pointer',
 
     transition:  'color linear 250ms',

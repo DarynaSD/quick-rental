@@ -14,7 +14,6 @@ const CarsList = ({ cars, toggleFavorite }) => {
   const isLoading = useSelector(selectLoading);
   const total = cars.length;
   const lastPage = total <= count;
-
     
   console.log('lastPage >>', lastPage);
   console.log(total - count);

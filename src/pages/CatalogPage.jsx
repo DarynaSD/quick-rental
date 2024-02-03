@@ -3,12 +3,14 @@ import { Section, Wrap } from './styled/main.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllCars } from '../redux/thunk';
 import CarsList from '../components/CarsList';
-import { selectCars } from '../redux/selectors';
+import {  selectVisibleCars } from '../redux/selectors';
 import { toggleFavCars } from '../redux/slice';
+import Form from '../components/Form';
+
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
-  const cars = useSelector(selectCars);
+  const cars = useSelector(selectVisibleCars);
 
   useEffect(() => {
     if (!cars || !cars.length) dispatch(fetchAllCars());
@@ -21,6 +23,7 @@ const CatalogPage = () => {
   return (
     <Wrap>
       <Section>
+        <Form/>
         <CarsList cars={cars} toggleFavorite={toggleFavorite} />
       </Section>
     </Wrap>
