@@ -3,7 +3,7 @@ import { Section, Wrap } from './styled/main.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllCars } from '../redux/thunk';
 import CarsList from '../components/CarsList';
-import { selectVisibleCars } from '../redux/selectors';
+import { selectFilters, selectVisibleCars } from '../redux/selectors';
 import { toggleFavCars } from '../redux/slice';
 import Form from '../components/Form';
 import { Empty } from 'components/styled/Empty.styled';
@@ -11,10 +11,11 @@ import { Empty } from 'components/styled/Empty.styled';
 const CatalogPage = () => {
   const dispatch = useDispatch();
   const cars = useSelector(selectVisibleCars);
+  const filters = useSelector(selectFilters);
 
   useEffect(() => {
-    if (!cars || !cars.length) dispatch(fetchAllCars());
-  }, [dispatch, cars]);
+    if ((!cars || !cars.length) && !filters) dispatch(fetchAllCars());
+  }, [dispatch, cars, filters]);
 
   const toggleFavorite = itemId => {
     dispatch(toggleFavCars(itemId));
