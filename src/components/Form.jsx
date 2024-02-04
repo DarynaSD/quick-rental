@@ -14,7 +14,7 @@ import {
   StyledForm,
 } from './styled/Form.styled';
 import { brandsArray } from '../helpers/brandsArray';
-import { priceArray } from 'helpers/priceArray';
+import { priceArray } from '../helpers/priceArray';
 import { Svg, SvgWrap } from './styled/Arrows.styled';
 
 const initOpen = { brand: false, price: false };
