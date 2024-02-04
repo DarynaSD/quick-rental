@@ -1,4 +1,6 @@
 import React from 'react';
+import toast from 'react-hot-toast';
+import sprite from '../img/sprite.svg';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilters } from '../redux/slice';
@@ -10,7 +12,6 @@ import {
   InputLabelWrapper,
   StyledForm,
 } from './styled/Form.styled';
-import toast from 'react-hot-toast';
 import { brandsArray } from '../helpers/brandsArray';
 import { priceArray } from 'helpers/priceArray';
 
@@ -157,6 +158,11 @@ const Form = () => {
           max={150}
           step={10}
         />
+
+        <svg direct={isOpen.brand ? 'down' : 'up'}>
+          <use href={`${sprite}#"icon-chevron-down`}></use>
+        </svg>
+
         {isOpen.price && (
           <FilterListWrapper>
             <FilterList data-type="price" onClick={handlePriceClick}>
