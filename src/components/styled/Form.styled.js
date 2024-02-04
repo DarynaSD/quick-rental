@@ -48,12 +48,33 @@ font-size: 18px;
 	outline: none;
 	cursor: pointer;`
 
-export const Datalist = styled.datalist`
- position: absolute;
- top: -60px;
- left: 0;
-  /* max-height: 20em;
-  border: 0 none;
-  overflow-x: hidden;
-  overflow-y: auto; */
+// export const Datalist = styled.datalist`
+//  position: absolute;
+//  top: -60px;
+//  left: 0;
+//   max-height: 20em;
+//   border: 0 none;
+//   overflow-x: hidden;
+//   overflow-y: auto;
+// `
+
+export const FilterListWrapper = styled.div`
+position: absolute;
+  top: 50px;
+  padding: 14px;
+  padding-right: 7px;
+  background-color: #FCFCFC;
+  border-radius: 12px;
+  z-index: 1;
+`
+
+export const FilterList  = styled.ul`
+display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: auto;
+  max-height: 222px;
+  overflow-y: auto;
+  
+  cursor: pointer;
 `

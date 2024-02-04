@@ -2,17 +2,19 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilters } from '../redux/slice';
-import { Button } from 'pages/styled/main.styled';
+import { Button } from '../pages/styled/main.styled';
 import {
-  Datalist,
+  FilterList,
+  FilterListWrapper,
   Input,
   InputLabelWrapper,
   Select,
   StyledForm,
 } from './styled/Form.styled';
 import toast from 'react-hot-toast';
+import { brandsArray } from '../helpers/brandsArray';
 
-
+const initOpen = { brand: false, price: false };
 
 const Form = () => {
   const [brand, setBrand] = useState('');
@@ -20,11 +22,18 @@ const Form = () => {
   const [mileageFrom, setMileageFrom] = useState('');
   const [mileageTo, setMileageTo] = useState('');
 
-  console.log(brand, price, mileageFrom, mileageTo);
+  const [isOpen, setOpen] = useState(initOpen);
+
+  const handleOpen = (e) => {
+  	const type = e.currentTarget.dataset.type;
+  	setOpen((prev) => ({ ...initOpen, [type]: !prev[type] }));
+  };
+
+  // console.log(brand, price, mileageFrom, mileageTo);
 
   const dispatch = useDispatch();
 
-  //wrong value
+  //wrong value in mileage
   const handleWrongValue = (value, form) => {
     if (form === 'mileageFrom') {
       setMileageFrom(value);
@@ -39,7 +48,7 @@ const Form = () => {
     }, 500);
   };
 
-  //change
+  //change on input
   const handleChange = ({ target: { value, name } }) => {
     switch (name) {
       case 'brand':
@@ -65,12 +74,21 @@ const Form = () => {
     }
   };
 
-  //blur
+  //blur on mileage
   const handleBlur = () => {
     mileageFrom !== '' &&
       Number(mileageFrom) > mileageTo &&
       handleWrongValue(mileageFrom);
   };
+
+  // ckick on brand category
+  const handleBrandClick = (e) => {
+    if (e.target.nodeName !== 'LI') return;
+    const value = e.target.textContent;
+    setBrand(value);
+    console.log("its click on brand");
+    setOpen(initOpen);
+  }
 
   //submit
   const handleSubmit = e => {
@@ -88,37 +106,27 @@ const Form = () => {
       <InputLabelWrapper exec={'brand'}>
         <label htmlFor="brandInput">Car brand</label>
         <Input
-          list="brand"
           type="text"
           name="brand"
           id="brandInput"
           value={brand}
           onChange={handleChange}
+          onFocus={handleOpen}
           placeholder="Enter the text"
+          data-type="brand"
+          autoComplete="off"
         />
-        <Datalist id="brand">
-          <option>Buick</option>
-          <option>Volvo</option>
-          <option>Hummer</option>
-          <option>Subaru</option>
-          <option>Mitsubishi</option>
-          <option>Nissan</option>
-          <option>Lincoln</option>
-          <option>GMC</option>
-          <option>Ford</option>
-          <option>Honda</option>
-          <option>Acura</option>
-          <option>Chevrolet</option>
-          <option>MINI</option>
-          <option>Bentley</option>
-          <option>JEEP</option>
-          <option>Audi</option>
-          <option>BMW</option>
-          <option>Mercedes-Benz</option>
-          <option>Chrysler</option>
-          <option>Kia</option>
-          <option>Land Rover</option>
-        </Datalist>
+        {isOpen.brand && (
+          <FilterListWrapper>
+            <FilterList data-type="brand" onClick={handleBrandClick}>
+              {brandsArray
+                .filter(one => one.toLocaleLowerCase().includes(brand.toLocaleLowerCase().trim()))
+                .map((one, index) => {
+                  return <li key={index}>{one}</li>;
+                })}
+            </FilterList>
+          </FilterListWrapper>
+        )}
       </InputLabelWrapper>
 
       <InputLabelWrapper>
