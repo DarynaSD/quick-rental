@@ -8,11 +8,11 @@ import {
   FilterListWrapper,
   Input,
   InputLabelWrapper,
-  Select,
   StyledForm,
 } from './styled/Form.styled';
 import toast from 'react-hot-toast';
 import { brandsArray } from '../helpers/brandsArray';
+import { priceArray } from 'helpers/priceArray';
 
 const initOpen = { brand: false, price: false };
 
@@ -85,10 +85,18 @@ const Form = () => {
   const handleBrandClick = (e) => {
     if (e.target.nodeName !== 'LI') return;
     const value = e.target.textContent;
-    setBrand(value);
-    console.log("its click on brand");
+    setBrand(value.toString());
+    // console.log("its click on brand");
     setOpen(initOpen);
   }
+
+  //click on price
+  const handlePriceClick = e => {
+    if (e.target.nodeName !== 'LI') return;
+    const value = e.target.textContent;
+    setPrice(value.toString());
+    setOpen(initOpen);
+  };
 
   //submit
   const handleSubmit = e => {
@@ -120,7 +128,11 @@ const Form = () => {
           <FilterListWrapper>
             <FilterList data-type="brand" onClick={handleBrandClick}>
               {brandsArray
-                .filter(one => one.toLocaleLowerCase().includes(brand.toLocaleLowerCase().trim()))
+                .filter(one =>
+                  one
+                    .toLocaleLowerCase()
+                    .includes(brand.toLocaleLowerCase().trim())
+                )
                 .map((one, index) => {
                   return <li key={index}>{one}</li>;
                 })}
@@ -130,24 +142,30 @@ const Form = () => {
       </InputLabelWrapper>
 
       <InputLabelWrapper>
-        <label htmlFor="priceSelect">Price / 1 hour</label>
-        <Select
+        <label htmlFor="priceInput">Price / 1 hour</label>
+        <Input
+          type="number"
           name="price"
-          id="priceSelect"
+          id="priceInput"
           value={price}
           onChange={handleChange}
-        >
-          <option value="">To $</option>
-          <option value="30">30</option>
-          <option value="40">40</option>
-          <option value="50">50</option>
-          <option value="60">60</option>
-          <option value="70">70</option>
-          <option value="80">80</option>
-          <option value="90">90</option>
-          <option value="100">100</option>
-          <option value="110">110</option>
-        </Select>
+          onFocus={handleOpen}
+          placeholder="To $"
+          data-type="price"
+          autoComplete="off"
+          min={0}
+          max={150}
+          step={10}
+        />
+        {isOpen.price && (
+          <FilterListWrapper>
+            <FilterList data-type="price" onClick={handlePriceClick}>
+              {priceArray.map((one, index) => {
+                return <li key={index}>{one}</li>;
+              })}
+            </FilterList>
+          </FilterListWrapper>
+        )}
       </InputLabelWrapper>
 
       <InputLabelWrapper exec={'mileage'}>
