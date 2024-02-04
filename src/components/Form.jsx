@@ -10,10 +10,12 @@ import {
   FilterListWrapper,
   Input,
   InputLabelWrapper,
+  MileageWrap,
   StyledForm,
 } from './styled/Form.styled';
 import { brandsArray } from '../helpers/brandsArray';
 import { priceArray } from 'helpers/priceArray';
+import { Svg, SvgWrap } from './styled/Arrows.styled';
 
 const initOpen = { brand: false, price: false };
 
@@ -25,12 +27,10 @@ const Form = () => {
 
   const [isOpen, setOpen] = useState(initOpen);
 
-  const handleOpen = (e) => {
-  	const type = e.currentTarget.dataset.type;
-  	setOpen((prev) => ({ ...initOpen, [type]: !prev[type] }));
+  const handleOpen = e => {
+    const type = e.currentTarget.dataset.type;
+    setOpen(prev => ({ ...initOpen, [type]: !prev[type] }));
   };
-
-  // console.log(brand, price, mileageFrom, mileageTo);
 
   const dispatch = useDispatch();
 
@@ -44,7 +44,7 @@ const Form = () => {
 
     setTimeout(() => {
       toast.error('"From" should be less or equal "To"', {
-        position: 'bottom-center',
+        position: 'top-center',
       });
     }, 500);
   };
@@ -83,13 +83,12 @@ const Form = () => {
   };
 
   // ckick on brand category
-  const handleBrandClick = (e) => {
+  const handleBrandClick = e => {
     if (e.target.nodeName !== 'LI') return;
     const value = e.target.textContent;
     setBrand(value.toString());
-    // console.log("its click on brand");
     setOpen(initOpen);
-  }
+  };
 
   //click on price
   const handlePriceClick = e => {
@@ -113,6 +112,12 @@ const Form = () => {
   return (
     <StyledForm onSubmit={handleSubmit}>
       <InputLabelWrapper exec={'brand'}>
+        <SvgWrap>
+
+        <Svg direct={isOpen.brand ? 'up' : 'down'}>
+          <use href={`${sprite}#icon-chevron-down`}></use>
+        </Svg>
+        </SvgWrap>
         <label htmlFor="brandInput">Car brand</label>
         <Input
           type="text"
@@ -143,6 +148,13 @@ const Form = () => {
       </InputLabelWrapper>
 
       <InputLabelWrapper>
+        <SvgWrap>
+
+        <Svg direct={isOpen.price ? 'up' : 'down'}>
+          <use href={`${sprite}#icon-chevron-down`}></use>
+        </Svg>
+        </SvgWrap>
+
         <label htmlFor="priceInput">Price / 1 hour</label>
         <Input
           type="number"
@@ -158,10 +170,10 @@ const Form = () => {
           max={150}
           step={10}
         />
-
-        <svg direct={isOpen.brand ? 'down' : 'up'}>
+{/* 
+        <Svg direct={isOpen.price ? 'down' : 'up'}>
           <use href={`${sprite}#"icon-chevron-down`}></use>
-        </svg>
+        </Svg> */}
 
         {isOpen.price && (
           <FilterListWrapper>
@@ -176,30 +188,30 @@ const Form = () => {
 
       <InputLabelWrapper exec={'mileage'}>
         <label htmlFor="mileageInput">Car mileage / km</label>
-        <Input
-          type="number"
-          name="mileageFrom"
-          id="mileageInput"
-          value={mileageFrom}
-          onChange={handleChange}
-          min={1}
-          placeholder="From"
-          step={100}
-        />
-        <Input
-          type="number"
-          name="mileageTo"
-          id="mileageInput"
-          value={mileageTo}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          min={1}
-          placeholder="To"
-          step={100}
-        />
+        <MileageWrap>
+          <Input
+            type="number"
+            name="mileageFrom"
+            id="mileageInput"
+            value={mileageFrom}
+            onChange={handleChange}
+            min={1}
+            placeholder="From"
+          />
+          <Input
+            type="number"
+            name="mileageTo"
+            id="mileageInput"
+            value={mileageTo}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            min={1}
+            placeholder="To"
+          />
+        </MileageWrap>
       </InputLabelWrapper>
 
-      <Button type="submit" width={136}>
+      <Button type="submit" width={136} margin={0}>
         Search
       </Button>
     </StyledForm>
