@@ -102,11 +102,6 @@ const Form = () => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(setFilters({ brand, price, mileageFrom, mileageTo }));
-
-    setBrand('');
-    setPrice('');
-    setMileageFrom('');
-    setMileageTo('');
   };
 
   return (
@@ -170,10 +165,6 @@ const Form = () => {
           max={150}
           step={10}
         />
-{/* 
-        <Svg direct={isOpen.price ? 'down' : 'up'}>
-          <use href={`${sprite}#"icon-chevron-down`}></use>
-        </Svg> */}
 
         {isOpen.price && (
           <FilterListWrapper>

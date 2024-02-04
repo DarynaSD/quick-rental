@@ -5,8 +5,11 @@ import { Button, HeartButton } from '../pages/styled/main.styled';
 
 const defaultImg = 'https://www.gavalimotors.com/adminpanel/assets/images/carnotfound.jpg'
 
-const CarsListItem = ({ item, toggleFavorite }) => {
+const CarsListItem = ({ item, toggleFavorite, handleModalOpen }) => {
   const { make, model, year, rentalPrice, img, isLiked, id } = item;
+
+  console.log("item >>", item)
+  
 
   const formatted = formatData(item);
 
@@ -29,7 +32,9 @@ const CarsListItem = ({ item, toggleFavorite }) => {
       </TextThumb>
       <AddThumb>
         <p>{formatted} </p>
-        <Button margin={'0'}>Learn more</Button>
+        <Button type="button" margin={'0'} onClick={() => handleModalOpen(item)}>
+          Learn more
+        </Button>
       </AddThumb>
     </Item>
   );

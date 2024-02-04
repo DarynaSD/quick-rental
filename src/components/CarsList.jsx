@@ -7,21 +7,32 @@ import { useSelector } from 'react-redux';
 import { selectLoading } from '../redux/selectors';
 import { Loader } from './Loader';
 import { LoadMoreButton } from './styled/LoadMoreButton.styled';
+import { ModalWindow } from './ModalWindow';
 
 const CarsList = ({ cars, toggleFavorite }) => {
-
+  const [isModal, setIsModal] = useState(false);
+  const [modalData, setModalData] = useState(null);
   const [count, setCount] = useState(12);
+
   const isLoading = useSelector(selectLoading);
   const total = cars.length;
   const lastPage = total <= count;
-    
-  console.log('lastPage >>', lastPage);
-  console.log(total - count);
-  
-    const handleLoadMore = () => {
-      setCount(prev => prev + 12);
+
+  const handleLoadMore = () => {
+    setCount(prev => prev + 12);
   };
-  
+
+  const handleModalOpen = data => {
+    console.log('data handleModalOpen >>', data);
+    setIsModal(true);
+    setModalData(data);
+  };
+
+  const handleModalClose = e => {
+    setIsModal(false);
+    setModalData(null);
+  };
+
   return (
     <List>
       {isLoading && <Loader />}
@@ -32,13 +43,18 @@ const CarsList = ({ cars, toggleFavorite }) => {
             <CarsListItem
               item={one}
               toggleFavorite={toggleFavorite}
+              handleModalOpen={handleModalOpen}
               key={nanoid()}
             />
           ))}
 
-      { !lastPage ? (
+      {!lastPage ? (
         <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
       ) : null}
+
+      {isModal && (
+        <ModalWindow modalData={modalData} onClose={handleModalClose} />
+      )}
     </List>
   );
 };
