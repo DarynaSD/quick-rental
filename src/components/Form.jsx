@@ -3,8 +3,16 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilters } from '../redux/slice';
 import { Button } from 'pages/styled/main.styled';
-import { Input, InputLabelWrapper, Select } from './styled/Form.styled';
+import {
+  Datalist,
+  Input,
+  InputLabelWrapper,
+  Select,
+  StyledForm,
+} from './styled/Form.styled';
 import toast from 'react-hot-toast';
+
+
 
 const Form = () => {
   const [brand, setBrand] = useState('');
@@ -25,7 +33,7 @@ const Form = () => {
     }
 
     setTimeout(() => {
-      toast.error('"From" should be less than "To"', {
+      toast.error('"From" should be less or equal "To"', {
         position: 'bottom-center',
       });
     }, 500);
@@ -76,10 +84,11 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <InputLabelWrapper>
+    <StyledForm onSubmit={handleSubmit}>
+      <InputLabelWrapper exec={'brand'}>
         <label htmlFor="brandInput">Car brand</label>
         <Input
+          list="brand"
           type="text"
           name="brand"
           id="brandInput"
@@ -87,6 +96,29 @@ const Form = () => {
           onChange={handleChange}
           placeholder="Enter the text"
         />
+        <Datalist id="brand">
+          <option>Buick</option>
+          <option>Volvo</option>
+          <option>Hummer</option>
+          <option>Subaru</option>
+          <option>Mitsubishi</option>
+          <option>Nissan</option>
+          <option>Lincoln</option>
+          <option>GMC</option>
+          <option>Ford</option>
+          <option>Honda</option>
+          <option>Acura</option>
+          <option>Chevrolet</option>
+          <option>MINI</option>
+          <option>Bentley</option>
+          <option>JEEP</option>
+          <option>Audi</option>
+          <option>BMW</option>
+          <option>Mercedes-Benz</option>
+          <option>Chrysler</option>
+          <option>Kia</option>
+          <option>Land Rover</option>
+        </Datalist>
       </InputLabelWrapper>
 
       <InputLabelWrapper>
@@ -110,7 +142,7 @@ const Form = () => {
         </Select>
       </InputLabelWrapper>
 
-      <InputLabelWrapper>
+      <InputLabelWrapper exec={'mileage'}>
         <label htmlFor="mileageInput">Car mileage / km</label>
         <Input
           type="number"
@@ -120,6 +152,7 @@ const Form = () => {
           onChange={handleChange}
           min={1}
           placeholder="From"
+          step={100}
         />
         <Input
           type="number"
@@ -130,13 +163,14 @@ const Form = () => {
           onBlur={handleBlur}
           min={1}
           placeholder="To"
+          step={100}
         />
       </InputLabelWrapper>
 
       <Button type="submit" width={136}>
         Search
       </Button>
-    </form>
+    </StyledForm>
   );
 };
 export default Form;

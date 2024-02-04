@@ -23,4 +23,4 @@ export const NavLinkWrap = styled('nav')({
     gap: 20,
     alignItems: 'center',
     justifyContent: 'space-between',
-})
+}) 

@@ -20,7 +20,7 @@ export const selectVisibleCars = createSelector(
     // console.log('brand >>', brand);
     return cars
       .filter(one =>
-        brand !== '' ? one.make.toLowerCase() === brand.toLowerCase() : one
+        brand !== '' ? one.make.toLowerCase().includes(brand.toLowerCase()) : one
       )
       .filter(one => {
         const formattedPrice = Number(

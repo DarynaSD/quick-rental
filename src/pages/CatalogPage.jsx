@@ -24,12 +24,13 @@ const CatalogPage = () => {
   return (
     <Wrap>
       <Section>
-        <Form />
+        <Form  />
         {cars.length ? (
           <CarsList cars={cars} toggleFavorite={toggleFavorite} />
         ) : (
           <Empty>
-            No cars were found by your request. Try search with other filter values.
+            No cars were found by your request. Try search with other filter
+            values.
           </Empty>
         )}
       </Section>

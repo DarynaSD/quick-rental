@@ -7,7 +7,7 @@ export const Wrap = styled('div')({
 })
 
 export const Section = styled('section')({
-    padding: '100px 128px 150px',
+    padding: '80px 128px 150px',
 })
 
 export const Button = styled.button(({width, margin}) => `
