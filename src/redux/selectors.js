@@ -17,7 +17,6 @@ export const selectFavCars = state => {
 export const selectVisibleCars = createSelector(
   [selectCars, selectFilters],
   (cars, { brand, price, mileageFrom, mileageTo }) => {
-    // console.log('brand >>', brand);
     return cars
       .filter(one =>
         brand !== '' ? one.make.toLowerCase().includes(brand.toLowerCase()) : one

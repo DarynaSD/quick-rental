@@ -10,7 +10,6 @@ export const fetchAllCars = createAsyncThunk(
       );
 
       const formattedData = response.data.map(one => ({ ...one, isLiked: false }))
-      console.log(formattedData)
       return formattedData;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

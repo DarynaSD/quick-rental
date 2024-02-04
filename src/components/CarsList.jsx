@@ -23,7 +23,6 @@ const CarsList = ({ cars, toggleFavorite }) => {
   };
 
   const handleModalOpen = data => {
-    console.log('data handleModalOpen >>', data);
     setIsModal(true);
     setModalData(data);
   };

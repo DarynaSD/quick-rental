@@ -23,8 +23,6 @@ const defaultImg =
   'https://www.gavalimotors.com/adminpanel/assets/images/carnotfound.jpg';
 
 export const ModalWindow = ({ modalData, onClose }) => {
-  console.log(modalData, onClose);
-
   const conditions = modalData.rentalConditions.split('\n');
   const age = conditions[0].split(': ');
   conditions.shift();

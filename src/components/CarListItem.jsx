@@ -8,9 +8,6 @@ const defaultImg = 'https://www.gavalimotors.com/adminpanel/assets/images/carnot
 const CarsListItem = ({ item, toggleFavorite, handleModalOpen }) => {
   const { make, model, year, rentalPrice, img, isLiked, id } = item;
 
-  console.log("item >>", item)
-  
-
   const formatted = formatData(item);
 
   const like = isLiked ? 'liked' : '';

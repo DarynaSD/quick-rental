@@ -9,7 +9,6 @@ import EmptyFavorites from '../components/EmptyFavorites';
 const FavoritesPage = () => {
   const dispatch = useDispatch();
   const favCars = useSelector(selectFavCars);
-  console.log('favCars >>', favCars);
 
   const toggleFavorite = itemId => {
     dispatch(toggleFavCars(itemId));
