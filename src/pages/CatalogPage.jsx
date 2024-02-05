@@ -14,7 +14,7 @@ const CatalogPage = () => {
   const allCars = useSelector(selectCars)
 
   useEffect(() => {
-    if (!allCars || !allCars) dispatch(fetchAllCars());
+    if (!allCars || !allCars.length) dispatch(fetchAllCars());
   }, [dispatch, allCars]);
 
   const toggleFavorite = itemId => {
