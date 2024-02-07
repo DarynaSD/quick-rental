@@ -2,7 +2,7 @@ import React from 'react';
 import toast from 'react-hot-toast';
 import sprite from '../img/sprite.svg';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setFilters } from '../redux/slice';
 import { Button } from '../pages/styled/main.styled';
 import {
@@ -16,14 +16,22 @@ import {
 import { brandsArray } from '../helpers/brandsArray';
 import { priceArray } from '../helpers/priceArray';
 import { Svg, SvgWrap } from './styled/Arrows.styled';
+import { selectFilters } from '../redux/selectors';
 
 const initOpen = { brand: false, price: false };
 
 const Form = () => {
-  const [brand, setBrand] = useState('');
-  const [price, setPrice] = useState('');
-  const [mileageFrom, setMileageFrom] = useState('');
-  const [mileageTo, setMileageTo] = useState('');
+  const {
+    brand: existBrand,
+    price: existPrice,
+    mileageFrom: existFrom,
+    mileageTo: existTo
+  } = useSelector(selectFilters);
+  
+  const [brand, setBrand] = useState(existBrand || '');
+  const [price, setPrice] = useState(existPrice || '');
+  const [mileageFrom, setMileageFrom] = useState(existFrom || '');
+  const [mileageTo, setMileageTo] = useState(existTo || '');
   const [isOpen, setOpen] = useState(initOpen);
 
   const dispatch = useDispatch();
@@ -34,11 +42,6 @@ const Form = () => {
     setOpen(prev => ({ ...initOpen, [type]: !prev[type] }));
   };
 
-  // handle close dropdown on click on arrow
-  //  const handleClose = e => {
-  //    const type = e.currentTarget.dataset.type;
-  //    setOpen({ ...initOpen, [type]: false });
-  //  };
 
   //handle close dropdown on click outside
   const handleCloseDropdown = e => {

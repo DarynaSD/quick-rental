@@ -11,8 +11,7 @@ export const StyledForm = styled.form`
   width: fit-content;
 `;
 
-export const InputLabelWrapper = styled.div(
-  ({ exec }) => `
+export const InputLabelWrapper = styled.div(({ exec }) => `
 	position: relative;
 	display: flex;
     gap: 4px;
@@ -23,6 +22,10 @@ export const InputLabelWrapper = styled.div(
 	
 	height: 48px;
 	width: ${exec === 'brand' ? '224px' : exec === 'mileage' ? '320px' : '125px'};
+
+  &:is(:hover, :focus) svg {
+    stroke: #3470ff; 
+  };
 	`
 );
 

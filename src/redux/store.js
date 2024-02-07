@@ -19,13 +19,13 @@ import { carsReducer } from './slice';
 const favCarsPersistConfig = {
   key: 'cars',
   storage,
-  whitelist: ['cars'],
+  whitelist: ['cars', 'filter'],
 };
 
 export const store = configureStore({
   reducer: {
     cars: persistReducer(favCarsPersistConfig, carsReducer), 
-    // favCars: persistReducer(favCarsPersistConfig, carsReducer),
+    // filter: persistReducer(favCarsPersistConfig, setFilters),
   },
 middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
