@@ -34,20 +34,22 @@ const Form = () => {
     setOpen(prev => ({ ...initOpen, [type]: !prev[type] }));
   };
 
-  //handle close dropdown on click outside
-//   document.addEventListener('click', handleCloseDropdown);
+  // handle close dropdown on click on arrow
+  //  const handleClose = e => {
+  //    const type = e.currentTarget.dataset.type;
+  //    setOpen({ ...initOpen, [type]: false });
+  //  };
 
-//   const handleCloseDropdown = e => {
-//     if (e.code === 'Escape' ||
-//       e.target.dataset.type === 'backdrop' ||
-//       e.target.dataset.type === 'close-modal'
-//     e.nodeName !== ) {
-      
-//       setOpen(initOpen)
-//       return document.removeEventListener('click', handleCloseDropdown);
-//     }
-// }
-//   }
+  //handle close dropdown on click outside
+  const handleCloseDropdown = e => {
+    if (e.target.dataset.type !== 'brand' &&
+    e.target.dataset.type !== 'price') {
+      setOpen(initOpen)
+      return document.removeEventListener('click', handleCloseDropdown);
+    }
+  };
+  
+  document.addEventListener('click', handleCloseDropdown);
 
   //wrong value in mileage
   const handleWrongValue = (value, form) => {
@@ -123,7 +125,7 @@ const Form = () => {
     <StyledForm onSubmit={handleSubmit}>
       <InputLabelWrapper exec={'brand'}>
         <SvgWrap onClick={handleOpen} data-type="brand">
-          <Svg direct={isOpen.brand ? 'up' : 'down'}>
+          <Svg direct={isOpen.brand ? 'up' : 'down'} data-type="brand">
             <use href={`${sprite}#icon-chevron-down`}></use>
           </Svg>
         </SvgWrap>
@@ -158,7 +160,7 @@ const Form = () => {
 
       <InputLabelWrapper>
         <SvgWrap onClick={handleOpen} data-type="price" type="button">
-          <Svg direct={isOpen.price ? 'up' : 'down'}>
+          <Svg direct={isOpen.price ? 'up' : 'down'} data-type="price">
             <use href={`${sprite}#icon-chevron-down`}></use>
           </Svg>
         </SvgWrap>
