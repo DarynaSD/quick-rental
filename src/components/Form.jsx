@@ -24,15 +24,30 @@ const Form = () => {
   const [price, setPrice] = useState('');
   const [mileageFrom, setMileageFrom] = useState('');
   const [mileageTo, setMileageTo] = useState('');
-
   const [isOpen, setOpen] = useState(initOpen);
 
+  const dispatch = useDispatch();
+
+  //handle open dropdowm
   const handleOpen = e => {
     const type = e.currentTarget.dataset.type;
     setOpen(prev => ({ ...initOpen, [type]: !prev[type] }));
   };
 
-  const dispatch = useDispatch();
+  //handle close dropdown on click outside
+//   document.addEventListener('click', handleCloseDropdown);
+
+//   const handleCloseDropdown = e => {
+//     if (e.code === 'Escape' ||
+//       e.target.dataset.type === 'backdrop' ||
+//       e.target.dataset.type === 'close-modal'
+//     e.nodeName !== ) {
+      
+//       setOpen(initOpen)
+//       return document.removeEventListener('click', handleCloseDropdown);
+//     }
+// }
+//   }
 
   //wrong value in mileage
   const handleWrongValue = (value, form) => {
@@ -46,7 +61,7 @@ const Form = () => {
       toast.error('"From" should be less or equal "To"', {
         position: 'top-center',
       });
-    }, 500);
+    }, 1000);
   };
 
   //change on input
@@ -107,11 +122,10 @@ const Form = () => {
   return (
     <StyledForm onSubmit={handleSubmit}>
       <InputLabelWrapper exec={'brand'}>
-        <SvgWrap>
-
-        <Svg direct={isOpen.brand ? 'up' : 'down'}>
-          <use href={`${sprite}#icon-chevron-down`}></use>
-        </Svg>
+        <SvgWrap onClick={handleOpen} data-type="brand">
+          <Svg direct={isOpen.brand ? 'up' : 'down'}>
+            <use href={`${sprite}#icon-chevron-down`}></use>
+          </Svg>
         </SvgWrap>
         <label htmlFor="brandInput">Car brand</label>
         <Input
@@ -143,11 +157,10 @@ const Form = () => {
       </InputLabelWrapper>
 
       <InputLabelWrapper>
-        <SvgWrap>
-
-        <Svg direct={isOpen.price ? 'up' : 'down'}>
-          <use href={`${sprite}#icon-chevron-down`}></use>
-        </Svg>
+        <SvgWrap onClick={handleOpen} data-type="price" type="button">
+          <Svg direct={isOpen.price ? 'up' : 'down'}>
+            <use href={`${sprite}#icon-chevron-down`}></use>
+          </Svg>
         </SvgWrap>
 
         <label htmlFor="priceInput">Price / 1 hour</label>
