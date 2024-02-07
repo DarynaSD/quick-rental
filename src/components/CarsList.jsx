@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { nanoid } from '@reduxjs/toolkit';
 
 import CarsListItem from './CarListItem';
 import { List } from './styled/List.styled';
@@ -43,7 +42,7 @@ const CarsList = ({ cars, toggleFavorite }) => {
               item={one}
               toggleFavorite={toggleFavorite}
               handleModalOpen={handleModalOpen}
-              key={nanoid()}
+              key={one.id}
             />
           ))}
 
