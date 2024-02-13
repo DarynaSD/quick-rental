@@ -10,7 +10,7 @@ export const Section = styled('section')({
     padding: '80px 128px 150px',
 })
 
-export const Button = styled.button(({width, margin, height}) => `
+export const Button = styled.button(({ width, margin, height, reset, hide }) => `
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,21 +19,33 @@ export const Button = styled.button(({width, margin, height}) => `
     height: ${height ? height : '44'}px;
     margin-top: ${margin ? margin : '28'}px;
 
-    border: none;
+    border-style: ${reset ? 'solid' : 'none'};
+    border-color: ${reset && '#ECECF2'};
+    border-width: ${reset && '1px'};
     border-radius: 12px;
-    background-color: #3470FF;
+
+    background-color: ${reset ? '#FCFCFC' : '#3470FF'};
 
     font-size: 14px;
     font-weight: 300px;
-    color: #FCFCFC;
+    color: ${reset ? '#747474' : '#FCFCFC'};
 
     cursor: pointer;
 
-    transition:  background-color, linear, 250ms;
+    transition: 
+    ${reset ? 'color, linear, 250ms; border-color, linear, 250ms' : 'background-color linear 250ms'};
 
     &:is(:hover, :focus) {
-        background-color: #0B44CD;
+       background-color: ${!reset && '#0B44CD'};
+       color: ${reset && '#0B44CD'};
+       border-color: ${reset && '#0B44CD'};
     };
+
+    &:disabled {
+        cursor: no-drop;
+        border-color: ${reset && '#ECECF2'};
+        color: ${reset && '#ECECF2'};
+    }
 `)
 
 export const HeartButton = styled.button(({isli}) => `

@@ -11,7 +11,7 @@ import { Empty } from '../components/styled/Empty.styled';
 const CatalogPage = () => {
   const dispatch = useDispatch();
   const cars = useSelector(selectVisibleCars);
-  const allCars = useSelector(selectCars)
+  const allCars = useSelector(selectCars);
 
   useEffect(() => {
     if (!allCars || !allCars.length) dispatch(fetchAllCars());

@@ -4,7 +4,6 @@ import { formatAccessories } from '../helpers/formatAccessories';
 import sprite from '../img/sprite.svg';
 import { Span } from './styled/List.styled';
 import {
-  A,
   Backdrop,
   CondItem,
   ConditionsList,
@@ -102,8 +101,8 @@ export const ModalWindow = ({ modalData, onClose }) => {
         <Gradient/>
         </WrapForScroll>
 
-        <LinkButton>
-          <A href="tel:+380730000000">Rental car</A>
+        <LinkButton href="tel:+380730000000">
+        Rental car
         </LinkButton>
       </Modal>
     </Backdrop>

@@ -25,9 +25,9 @@ const Form = () => {
     brand: existBrand,
     price: existPrice,
     mileageFrom: existFrom,
-    mileageTo: existTo
+    mileageTo: existTo,
   } = useSelector(selectFilters);
-  
+
   const [brand, setBrand] = useState(existBrand || '');
   const [price, setPrice] = useState(existPrice || '');
   const [mileageFrom, setMileageFrom] = useState(existFrom || '');
@@ -42,16 +42,17 @@ const Form = () => {
     setOpen(prev => ({ ...initOpen, [type]: !prev[type] }));
   };
 
-
   //handle close dropdown on click outside
   const handleCloseDropdown = e => {
-    if (e.target.dataset.type !== 'brand' &&
-    e.target.dataset.type !== 'price') {
-      setOpen(initOpen)
+    if (
+      e.target.dataset.type !== 'brand' &&
+      e.target.dataset.type !== 'price'
+    ) {
+      setOpen(initOpen);
       return document.removeEventListener('click', handleCloseDropdown);
     }
   };
-  
+
   document.addEventListener('click', handleCloseDropdown);
 
   //wrong value in mileage
@@ -124,8 +125,29 @@ const Form = () => {
     dispatch(setFilters({ brand, price, mileageFrom, mileageTo }));
   };
 
+  //reset
+  const handleReset = (e) => {
+        e.preventDefault();
+
+    setBrand('');
+    setPrice('');
+    setMileageFrom('');
+    setMileageTo('');
+
+    dispatch(setFilters({ brand, price, mileageFrom, mileageTo }));
+  };
+
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <StyledForm onSubmit={handleSubmit} onReset={handleReset}>
+      <Button
+        type="reset"
+        reset={'reset'}
+        disabled={!brand && !price && !mileageFrom && !mileageTo}
+        width={104}
+        height={48}
+      >
+        Clear all
+      </Button>
       <InputLabelWrapper exec={'brand'}>
         <SvgWrap onClick={handleOpen} data-type="brand">
           <Svg direct={isOpen.brand ? 'up' : 'down'} data-type="brand">
