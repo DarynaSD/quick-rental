@@ -8,15 +8,17 @@ import {
   Backdrop,
   CondItem,
   ConditionsList,
+  Gradient,
   InfoWrapper,
+  LinkButton,
   Modal,
   ModalImg,
   Regular,
   SvgClose,
   Title,
   UnderTitle,
+  WrapForScroll,
 } from './styled/Modal.styled';
-import { Button } from '../pages/styled/main.styled';
 import { nanoid } from '@reduxjs/toolkit';
 
 const defaultImg =
@@ -68,6 +70,8 @@ export const ModalWindow = ({ modalData, onClose }) => {
           <span>{modalData.year}</span>
         </Title>
 
+        <WrapForScroll>
+
         <InfoWrapper>
           <p>{formatModalAddress(modalData)}</p>
           <p>{formatModalFuel(modalData)}</p>
@@ -94,10 +98,13 @@ export const ModalWindow = ({ modalData, onClose }) => {
           <CondItem key={nanoid()}>
             Price: <Span>{modalData.rentalPrice.replace(/[^0-9]/g, '')}$</Span>
           </CondItem>
-        </ConditionsList>
-        <Button width={168}>
+          </ConditionsList>
+        <Gradient/>
+        </WrapForScroll>
+
+        <LinkButton>
           <A href="tel:+380730000000">Rental car</A>
-        </Button>
+        </LinkButton>
       </Modal>
     </Backdrop>
   );
