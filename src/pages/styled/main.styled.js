@@ -10,13 +10,13 @@ export const Section = styled('section')({
     padding: '80px 128px 150px',
 })
 
-export const Button = styled.button(({width, margin}) => `
+export const Button = styled.button(({width, margin, height}) => `
     display: flex;
     align-items: center;
     justify-content: center;
     max-width: ${width ? width : '274'}px;
     width: 100%;
-    height: 44px;
+    height: ${height ? height : '44'}px;
     margin-top: ${margin ? margin : '28'}px;
 
     border: none;

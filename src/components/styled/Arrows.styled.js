@@ -6,9 +6,9 @@ height: 40px;
 background-color: #F7F7FB;
 
 position: absolute;
-top: 22px;
+top: 30px;
 right: 8px;
-z-index: 90;
+z-index: 50;
 
 display: flex;
 align-items: center;

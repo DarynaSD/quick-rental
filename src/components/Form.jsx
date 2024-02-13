@@ -220,7 +220,7 @@ const Form = () => {
         </MileageWrap>
       </InputLabelWrapper>
 
-      <Button type="submit" width={136} margin={0}>
+      <Button type="submit" width={136} margin={'0'} height={48}>
         Search
       </Button>
     </StyledForm>

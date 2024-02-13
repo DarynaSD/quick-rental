@@ -7,20 +7,21 @@ export const StyledForm = styled.form`
   gap: 18px;
   align-items: flex-end;
 
-  margin: 0 auto 50px;
+  margin: 0 auto 70px;
   width: fit-content;
+  height: 74px;
 `;
 
 export const InputLabelWrapper = styled.div(({ exec }) => `
 	position: relative;
 	display: flex;
-    gap: 4px;
-    flex-direction: column;
-	margin-bottom: 20px;
+  gap: 8px;
+  flex-direction: column;
+  justify-content: space-between;
 	color: #8A8A89;
 	font-size: 14px;
 	
-	height: 48px;
+	height: 74px;
 	width: ${exec === 'brand' ? '224px' : exec === 'mileage' ? '320px' : '125px'};
 
   &:is(:hover, :focus) svg {
@@ -50,6 +51,8 @@ border-radius: 14px;
 `
 
 export const Input = styled.input`
+  height: 48px;
+
   font-size: 18px;
   font-weight: 500;
   line-height: 1.12;
