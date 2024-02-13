@@ -134,7 +134,7 @@ const Form = () => {
     setMileageFrom('');
     setMileageTo('');
 
-    dispatch(setFilters({ brand, price, mileageFrom, mileageTo }));
+    dispatch(setFilters({ brand: '', price: '', mileageFrom: '', mileageTo: '' }));
   };
 
   return (
