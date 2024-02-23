@@ -19,7 +19,7 @@ border: none;
 cursor: pointer;
 
 
-&:is(:hover, :focus) svg {
+&:is(:hover) svg {
     stroke: #3470ff; 
 }
 `
@@ -28,7 +28,7 @@ export const Svg = styled.svg(({direct}) => `
 display: block;
 width: 20px;
 height: 20px;
-stroke: #121417;
+stroke: ${direct === 'up' ? '#3470ff' : '#121417'};
 
 rotate: ${direct === 'up' && '180deg'};
 
