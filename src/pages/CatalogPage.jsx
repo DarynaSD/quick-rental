@@ -18,6 +18,7 @@ const CatalogPage = () => {
   }, [dispatch, allCars]);
 
   const toggleFavorite = itemId => {
+    console.log(itemId)
     dispatch(toggleFavCars(itemId));
   };
 

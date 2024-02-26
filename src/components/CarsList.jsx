@@ -7,10 +7,14 @@ import { selectLoading } from '../redux/selectors';
 import { Loader } from './Loader';
 import { LoadMoreButton } from './styled/LoadMoreButton.styled';
 import { ModalWindow } from './ModalWindow';
+import { DeleteModal } from './DeleteModal';
 
-const CarsList = ({ cars, toggleFavorite }) => {
+const CarsList = ({ cars, toggleFavorite, page }) => {
   const [isModal, setIsModal] = useState(false);
   const [modalData, setModalData] = useState(null);
+
+  const [isDeleteModal, setIsDeleteModal] = useState(false);
+  const [IdToDelete, setIdToDelete] = useState(null);
   const [count, setCount] = useState(12);
 
   const isLoading = useSelector(selectLoading);
@@ -21,6 +25,7 @@ const CarsList = ({ cars, toggleFavorite }) => {
     setCount(prev => prev + 12);
   };
 
+  // modal with detailes
   const handleModalOpen = data => {
     setIsModal(true);
     setModalData(data);
@@ -31,20 +36,42 @@ const CarsList = ({ cars, toggleFavorite }) => {
     setModalData(null);
   };
 
+  // modal to confirm delete
+  const handleDelModalOpen = id => {
+    setIsDeleteModal(true);
+    setIdToDelete(id);
+  };
+
+  const confirmDelete = () => {
+    toggleFavorite(IdToDelete);
+    console.log(toggleFavorite)
+    setIsDeleteModal(false);
+    setIdToDelete(null);
+  };
+
+  const leaveItHere = e => {
+    setIsDeleteModal(false);
+    setIdToDelete(null);
+  }
+
   return (
-    <List>
-      {isLoading && <Loader />}
-      {cars &&
-        cars
-          .slice(0, count)
-          .map(one => (
-            <CarsListItem
-              item={one}
-              toggleFavorite={toggleFavorite}
-              handleModalOpen={handleModalOpen}
-              key={one.id}
-            />
-          ))}
+    <>
+      <List>
+        {isLoading && <Loader />}
+        {cars &&
+          cars
+            .slice(0, count)
+            .map(one => (
+              <CarsListItem
+                item={one}
+                toggleFavorite={toggleFavorite}
+                handleModalOpen={handleModalOpen}
+                handleDelModalOpen={handleDelModalOpen}
+                key={one.id}
+                page={page}
+              />
+            ))}
+      </List>
 
       {!lastPage ? (
         <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
@@ -53,7 +80,16 @@ const CarsList = ({ cars, toggleFavorite }) => {
       {isModal && (
         <ModalWindow modalData={modalData} onClose={handleModalClose} />
       )}
-    </List>
+
+      {isDeleteModal && (
+        <DeleteModal
+          toggleFavorite={toggleFavorite}
+          IdToDelete={IdToDelete}
+          confirmDelete={confirmDelete}
+          leaveItHere={leaveItHere}
+        />
+      )}
+    </>
   );
 };
 
