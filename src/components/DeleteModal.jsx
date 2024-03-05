@@ -1,5 +1,6 @@
+import ReactDOM from "react-dom";
 import { Button } from '../pages/styled/main.styled';
-import { DeleteModalWindow } from './styled/DeleteModal.styled';
+import { ButtWrapper, DeleteModalWindow } from './styled/DeleteModal.styled';
 import { Backdrop } from './styled/Modal.styled';
 
 export const DeleteModal = ({
@@ -20,23 +21,28 @@ export const DeleteModal = ({
     }
   };
 
-  // const handleDelete = async id => {
-  //   document.body.style.overflow = 'scroll';
-  //   console.log(typeof toggleFavorite);
-  //   // confirmDelete(id);
-  //   await toggleFavorite(id);
-  //   leaveItHere();
-  // };
-
-  return (
+  return ReactDOM.createPortal(
     <Backdrop onClick={handleClose} data-type="backdrop">
       <DeleteModalWindow>
-        <p>Are you sure you want to delete from favorites this exellent car?</p>
-        <Button onClick={confirmDelete}>Delete</Button>
-        <Button onClick={handleClose} data-type="close-modal">
+        <p>
+          Are you sure you want to delete from favorites this excellent car?
+        </p>
+        <ButtWrapper>
+
+        <Button onClick={() => confirmDelete(IdToDelete)} width={126} del={'del'}>
+          Delete
+        </Button>
+        <Button onClick={handleClose} data-type="close-modal" width={126}>
           Leave it here
         </Button>
+
+        </ButtWrapper>
+
+
       </DeleteModalWindow>
-    </Backdrop>
+    </Backdrop>,
+    document.getElementById('delmodal')
   );
+  
+;
 };

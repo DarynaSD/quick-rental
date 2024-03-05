@@ -10,7 +10,7 @@ export const Section = styled('section')({
     padding: '80px 128px 150px',
 })
 
-export const Button = styled.button(({ width, margin, height, reset, hide }) => `
+export const Button = styled.button(({ width, margin, height, reset, del }) => `
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,7 +24,7 @@ export const Button = styled.button(({ width, margin, height, reset, hide }) => 
     border-width: ${reset && '1px'};
     border-radius: 12px;
 
-    background-color: ${reset ? '#FCFCFC' : '#3470FF'};
+    background-color: ${reset ? '#FCFCFC' : del ? '#579df7' : '#3470FF'};
 
     font-size: 14px;
     font-weight: 300px;

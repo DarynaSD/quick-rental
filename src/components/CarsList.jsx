@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 
 import CarsListItem from './CarListItem';
 import { List } from './styled/List.styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectLoading } from '../redux/selectors';
 import { Loader } from './Loader';
 import { LoadMoreButton } from './styled/LoadMoreButton.styled';
 import { ModalWindow } from './ModalWindow';
 import { DeleteModal } from './DeleteModal';
+import { toggleFavCars } from '../redux/slice';
 
 const CarsList = ({ cars, toggleFavorite, page }) => {
+  const dispatch = useDispatch();
+
   const [isModal, setIsModal] = useState(false);
   const [modalData, setModalData] = useState(null);
 
@@ -42,9 +45,10 @@ const CarsList = ({ cars, toggleFavorite, page }) => {
     setIdToDelete(id);
   };
 
-  const confirmDelete = () => {
-    toggleFavorite(IdToDelete);
-    console.log(toggleFavorite)
+  const confirmDelete = IdToDelete => 
+   { console.log(IdToDelete);
+    // toggleFavorite(IdToDelete);
+    dispatch(toggleFavCars(IdToDelete));
     setIsDeleteModal(false);
     setIdToDelete(null);
   };
@@ -72,15 +76,12 @@ const CarsList = ({ cars, toggleFavorite, page }) => {
               />
             ))}
       </List>
-
       {!lastPage ? (
         <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
       ) : null}
-
       {isModal && (
         <ModalWindow modalData={modalData} onClose={handleModalClose} />
       )}
-
       {isDeleteModal && (
         <DeleteModal
           toggleFavorite={toggleFavorite}

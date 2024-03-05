@@ -3,9 +3,9 @@ import { styled } from 'styled-components';
  export const LoadMoreButton = styled('button')({
     display: 'block',
      minWidth: 80,
-    width: 'fit-content',
+     width: 'fit-content',
      padding: '10px 20px',
-     margin: '0 auto',
+     margin: '36px auto 0',
 
      border: 'none',
      background: 'none',
