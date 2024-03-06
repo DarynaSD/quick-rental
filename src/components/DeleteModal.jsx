@@ -7,7 +7,6 @@ export const DeleteModal = ({
   leaveItHere,
   confirmDelete,
   IdToDelete,
-  toggleFavorite,
 }) => {
   document.body.style.overflow = 'hidden';
 
