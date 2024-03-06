@@ -46,8 +46,10 @@ const CarsList = ({ cars, toggleFavorite, page }) => {
   };
 
   const confirmDelete = IdToDelete => 
-   { console.log(IdToDelete);
+  {
+    // console.log(IdToDelete);
     // toggleFavorite(IdToDelete);
+    document.body.style.overflow = 'scroll';
     dispatch(toggleFavCars(IdToDelete));
     setIsDeleteModal(false);
     setIdToDelete(null);
