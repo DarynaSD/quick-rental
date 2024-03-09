@@ -1,15 +1,20 @@
+import { device } from '../../helpers/breakpoints';
 import { styled } from 'styled-components';
 
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 18px;
   align-items: flex-end;
 
   margin: 0 auto 70px;
   width: fit-content;
-  height: 74px;
+
+    @media ${device.lg} {
+    flex-wrap: nowrap;
+  }
 `;
 
 export const InputLabelWrapper = styled.div(({ exec }) => `

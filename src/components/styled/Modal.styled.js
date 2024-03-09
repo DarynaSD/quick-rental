@@ -22,6 +22,7 @@ export const Modal = styled.div`
   max-height: 90vh;
   width: 541px;
   overflow: hidden;
+  max-width: 90vw;
 `
 
 export const SvgClose = styled.svg`

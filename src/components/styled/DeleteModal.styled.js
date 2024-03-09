@@ -9,6 +9,7 @@ justify-content: center;
 export const DeleteModalWindow = styled.div`
 display: block;
 width: 380px;
+max-width: 90vw;
 height: 160px;
 margin: auto;
 padding: 25px;

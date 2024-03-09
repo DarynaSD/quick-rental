@@ -1,3 +1,4 @@
+import { device } from "../../helpers/breakpoints";
 import styled from "styled-components";
 
 
@@ -6,9 +7,18 @@ export const Wrap = styled('div')({
     margin: '97px auto 0',
 })
 
-export const Section = styled('section')({
-    padding: '80px 128px 150px',
-})
+export const Section = styled.section`
+    padding: 40px 32px 40px;
+
+            @media ${device.md} {
+    padding: 40px 64px 75px;
+  }
+
+        @media ${device.lg} {
+    padding: 80px 128px 150px;
+  }
+`
+
 
 export const Button = styled.button(({ width, margin, height, reset, del }) => `
     display: flex;

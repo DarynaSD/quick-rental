@@ -1,19 +1,24 @@
 import { styled } from 'styled-components';
 
  export const List = styled('ul')({
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'flex-start',
-    width: '100%',
-    maxWidth: 1440,
-    rowGap: 50,
-    columnGap: 29,
-    
+    display: 'grid',
+    maxWidth: '100%',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(274px, 274px))',
+    gridColumnGap: 29,
+     gridRowGap: 50,
+    justifyContent: 'center',
+
+    marginTop: 0,
+    marginBottom: 0,
+    padding: 0,
+    listStyle: 'none',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+
     scrollBehavior: 'smooth',
  })
 
 export const Item = styled('li')({
-    width: 'calc((100% / 4) - 29px)',
     height: 426, 
     overflow: 'hidden',
     transition: 'background, linear, 250ms',
