@@ -1,26 +1,29 @@
-import { device } from "../../helpers/breakpoints";
-import styled from "styled-components";
-
+import { device } from '../../helpers/breakpoints';
+import styled from 'styled-components';
 
 export const Wrap = styled('div')({
-    maxWidth: '1440px',
-    margin: '97px auto 0',
-})
+  maxWidth: '1440px',
+  margin: '97px auto 0',
+});
 
 export const Section = styled.section`
-    padding: 40px 32px 40px;
+  padding: 40px 30px 40px;
 
-            @media ${device.md} {
+  @media ${device.xs} {
+    padding: 40px 20px 40px;
+  }
+
+  @media ${device.md} {
     padding: 40px 64px 75px;
   }
 
-        @media ${device.lg} {
+  @media ${device.lg} {
     padding: 80px 128px 150px;
   }
-`
+`;
 
-
-export const Button = styled.button(({ width, margin, height, reset, del }) => `
+export const Button = styled.button(
+  ({ width, margin, height, reset, del }) => `
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,7 +46,11 @@ export const Button = styled.button(({ width, margin, height, reset, del }) => `
     cursor: pointer;
 
     transition: 
-    ${reset ? 'color, linear, 250ms; border-color, linear, 250ms' : 'background-color linear 250ms'};
+    ${
+      reset
+        ? 'color, linear, 250ms; border-color, linear, 250ms'
+        : 'background-color linear 250ms'
+    };
 
     &:is(:hover, :focus) {
        background-color: ${!reset && '#0B44CD'};
@@ -56,9 +63,11 @@ export const Button = styled.button(({ width, margin, height, reset, del }) => `
         border-color: ${reset && '#ECECF2'};
         color: ${reset && '#ECECF2'};
     }
-`)
+`
+);
 
-export const HeartButton = styled.button(({isli}) => `
+export const HeartButton = styled.button(
+  ({ isli }) => `
     position: absolute;
     width: 50px;
     height: 50px;
@@ -96,5 +105,5 @@ export const HeartButton = styled.button(({isli}) => `
     &:is(:hover, :focus)::before {
         background: ${isli ? '#0B44CD' : '#FCFCFC'};
     };
-`)
-
+`
+);

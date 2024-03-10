@@ -5,7 +5,7 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 18px;
   align-items: flex-end;
 
@@ -14,8 +14,16 @@ export const StyledForm = styled.form`
 
     @media ${device.lg} {
     flex-wrap: nowrap;
+    justify-content: center;
   }
 `;
+
+export const WrapForMedia = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  column-gap: 18px;
+`
 
 export const InputLabelWrapper = styled.div(({ exec }) => `
 	position: relative;
@@ -32,6 +40,10 @@ export const InputLabelWrapper = styled.div(({ exec }) => `
   &:is(:hover, :focus) svg {
     stroke: #3470ff; 
   };
+
+        @media ${device.xs} {
+	width: ${exec === 'brand' ? '166px' : exec === 'mileage' ? '260px' : '96px'};
+  }
 	`
 );
 
@@ -69,16 +81,18 @@ export const Input = styled.input`
   border: none;
   outline: none;
 
+  cursor: text;
+
   &::placeholder {
     color: #121417;
   }
 
-  cursor: text;
 `;
 
 //ul
 export const FilterListWrapper = styled.div`
   position: absolute;
+  z-index: 53;
   top: 70px;
   padding: 14px;
   padding-right: 7px;

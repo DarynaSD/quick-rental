@@ -6,7 +6,7 @@ const size = {
 }
 
 export const device = {
-    xs: `(max-width: ${size.xs})`,
+    xs: `(max-width: ${size.sm})`,
     sm: `(min-width: ${size.sm})`,
     md: `(min-width: ${size.md})`,
     lg: `(min-width: ${size.lg})`,

@@ -12,6 +12,7 @@ import {
   InputLabelWrapper,
   MileageWrap,
   StyledForm,
+  WrapForMedia,
 } from './styled/Form.styled';
 import { brandsArray } from '../helpers/brandsArray';
 import { priceArray } from '../helpers/priceArray';
@@ -145,77 +146,81 @@ const Form = () => {
         disabled={!brand && !price && !mileageFrom && !mileageTo}
         width={104}
         height={48}
+        margin={'0'}
       >
         Clear all
       </Button>
-      <InputLabelWrapper exec={'brand'}>
-        <SvgWrap onClick={handleOpen} data-type="brand">
-          <Svg direct={isOpen.brand ? 'up' : 'down'} data-type="brand">
-            <use href={`${sprite}#icon-chevron-down`}></use>
-          </Svg>
-        </SvgWrap>
-        <label htmlFor="brandInput">Car brand</label>
-        <Input
-          type="text"
-          name="brand"
-          id="brandInput"
-          value={brand}
-          onChange={handleChange}
-          onFocus={handleOpen}
-          placeholder="Enter the text"
-          data-type="brand"
-          autoComplete="off"
-        />
-        {isOpen.brand && (
-          <FilterListWrapper>
-            <FilterList data-type="brand" onClick={handleBrandClick}>
-              {brandsArray
-                .filter(one =>
-                  one
-                    .toLocaleLowerCase()
-                    .includes(brand.toLocaleLowerCase().trim())
-                )
-                .map((one, index) => {
+
+      <WrapForMedia>
+        <InputLabelWrapper exec={'brand'}>
+          <SvgWrap onClick={handleOpen} data-type="brand">
+            <Svg direct={isOpen.brand ? 'up' : 'down'} data-type="brand">
+              <use href={`${sprite}#icon-chevron-down`}></use>
+            </Svg>
+          </SvgWrap>
+          <label htmlFor="brandInput">Car brand</label>
+          <Input
+            type="text"
+            name="brand"
+            id="brandInput"
+            value={brand}
+            onChange={handleChange}
+            onFocus={handleOpen}
+            placeholder="Enter the text"
+            data-type="brand"
+            autoComplete="off"
+          />
+          {isOpen.brand && (
+            <FilterListWrapper>
+              <FilterList data-type="brand" onClick={handleBrandClick}>
+                {brandsArray
+                  .filter(one =>
+                    one
+                      .toLocaleLowerCase()
+                      .includes(brand.toLocaleLowerCase().trim())
+                  )
+                  .map((one, index) => {
+                    return <li key={index}>{one}</li>;
+                  })}
+              </FilterList>
+            </FilterListWrapper>
+          )}
+        </InputLabelWrapper>
+
+        <InputLabelWrapper>
+          <SvgWrap onClick={handleOpen} data-type="price" type="button">
+            <Svg direct={isOpen.price ? 'up' : 'down'} data-type="price">
+              <use href={`${sprite}#icon-chevron-down`}></use>
+            </Svg>
+          </SvgWrap>
+
+          <label htmlFor="priceInput">Price / 1 hour</label>
+          <Input
+            type="number"
+            name="price"
+            id="priceInput"
+            value={price}
+            onChange={handleChange}
+            onFocus={handleOpen}
+            placeholder="To $"
+            data-type="price"
+            autoComplete="off"
+            min={0}
+            max={150}
+            step={10}
+          />
+
+          {isOpen.price && (
+            <FilterListWrapper>
+              <FilterList data-type="price" onClick={handlePriceClick}>
+                {priceArray.map((one, index) => {
                   return <li key={index}>{one}</li>;
                 })}
-            </FilterList>
-          </FilterListWrapper>
-        )}
-      </InputLabelWrapper>
-
-      <InputLabelWrapper>
-        <SvgWrap onClick={handleOpen} data-type="price" type="button">
-          <Svg direct={isOpen.price ? 'up' : 'down'} data-type="price">
-            <use href={`${sprite}#icon-chevron-down`}></use>
-          </Svg>
-        </SvgWrap>
-
-        <label htmlFor="priceInput">Price / 1 hour</label>
-        <Input
-          type="number"
-          name="price"
-          id="priceInput"
-          value={price}
-          onChange={handleChange}
-          onFocus={handleOpen}
-          placeholder="To $"
-          data-type="price"
-          autoComplete="off"
-          min={0}
-          max={150}
-          step={10}
-        />
-
-        {isOpen.price && (
-          <FilterListWrapper>
-            <FilterList data-type="price" onClick={handlePriceClick}>
-              {priceArray.map((one, index) => {
-                return <li key={index}>{one}</li>;
-              })}
-            </FilterList>
-          </FilterListWrapper>
-        )}
-      </InputLabelWrapper>
+              </FilterList>
+            </FilterListWrapper>
+          )}
+        </InputLabelWrapper>
+      </WrapForMedia>
 
       <InputLabelWrapper exec={'mileage'}>
         <label htmlFor="mileageInput">Car mileage / km</label>
