@@ -5,7 +5,7 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 18px;
   align-items: flex-end;
 
@@ -14,7 +14,7 @@ export const StyledForm = styled.form`
 
     @media ${device.lg} {
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: flex-start;
   }
 `;
 
