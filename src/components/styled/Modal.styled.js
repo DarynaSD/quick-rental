@@ -1,3 +1,4 @@
+import { device } from 'helpers/breakpoints';
 import { styled } from 'styled-components';
 
 export const Backdrop = styled.div`
@@ -57,7 +58,7 @@ export const Title = styled.h2`
 `
 
 export const WrapForScroll = styled.div`
-  max-height: 200px;
+  max-height: 150px;
   overflow: auto;
 
   &::-webkit-scrollbar {
@@ -70,6 +71,11 @@ export const WrapForScroll = styled.div`
   &::-webkit-scrollbar-thumb {
     background-color: rgba(18, 20, 23, 0.05);
     border-radius: 12px;
+  }
+
+    @media ${device.md} {
+      max-height: 200px;
+
   }
   `;
 
